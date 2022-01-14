@@ -1,0 +1,806 @@
+@font-face {
+    font-family: Comic Sans MS;
+    src: url('./comic-sans-ms/ComicSansMS3.ttf');
+  }
+
+body{
+    font-family: Comic Sans MS;
+    overflow: hidden;
+}
+html{
+    overflow: hidden;
+    
+}
+#mainBG{
+    position: absolute;
+    left:0;
+    top:0;
+    width:100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#masterDiv{
+    position: absolute;
+    width:100%;
+    height: 100%;
+    left:0;
+    top:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#firstDiv{
+    width:177.78vh;
+    height:100vh;
+    color: rgb(19, 101, 209);
+    position: absolute;
+
+    border: 1px solid black;
+}
+
+/* BOX AND CHARACTER ANIMATION */
+#box{
+    position: absolute;
+    top:65%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 35vh;
+}
+
+/* RE-POSITIONING THE TEXTs */
+#sliderVal {
+    position: absolute;
+    color: #50ff24;
+    background: #25134f;
+    border: #c8a9f7 solid 0.2rem;
+    padding: 0.15rem 0.4rem 0.25rem 0.4rem;
+    left:20%;
+    top:28%;
+    font-size: 0.9rem;
+    /* font-family: "Comic Sans MS"; */
+    border-radius: 0.30rem;
+
+}
+#staticFric{
+    position: absolute;
+    color: #ffdae8;
+    /* text-shadow: 0 0 15px rgb(255, 255, 255); */
+    left:23%;
+    bottom:12%;
+    font-size: 0.75rem;
+    /* font-family: "Comic Sans MS"; */
+    background: #25134f;
+    border: #c8a9f7 solid 0.2rem;
+    padding: 0.15rem 0.4rem 0.25rem 0.4rem;
+
+    border-radius: 0.35rem;
+}
+
+#kineticFric{
+    position: absolute;
+    color: #a1a1a1;
+    /* text-shadow: 0 0 15px rgb(255, 255, 255); */
+    left:23%;
+    bottom:3%;
+    font-size: 0.75rem;
+    /* font-family: "Comic Sans MS"; */
+    background: #25134f;
+    border: #c8a9f7 solid 0.2rem;
+
+    padding: 0.20rem 0.3rem 0.25rem 0.3rem;
+
+    border-radius: 0.30rem;
+}
+
+
+#backgroundImage{
+    position: absolute;
+    width: 100vw;
+    left: 50%;
+    top:45%;
+    transform: translate(-50%, -50%);
+    /* border: 1px solid black; */
+}
+#backgroundImageFlip{
+    position: absolute;
+    width: 100vw;
+    left: -50%;
+    top:45%;
+    transform: translate(-50%, -50%);
+    /* border: 1px solid red; */
+}
+
+
+.slidecontainer {
+    position: absolute;
+    width:20%;
+    top: 80%;
+    left: 55%;
+    /* left: 0px; */
+    /* right: ; */
+    /* background: greenyellow; */
+    /* Rotating the slider and setting the origin of rotn*/
+    /* -webkit-transform-origin: 0% 0%;
+    -moz-transform-origin: 0% 0%;
+    -ms-transform-origin: 0% 0%;
+    -o-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: translate(0%,50%) rotate(-90deg); */
+
+}
+  
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 0.7rem;
+    background: linear-gradient(to left,#FF2070,orange,yellow,#C3FF1A,skyblue,rgb(33, 82, 243));
+    border: #c8a9f7 solid 0.2rem;
+    border-radius: 0.15rem;
+    opacity: 0.9;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+  
+.slider:hover {
+    opacity: 1;
+}
+  
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 0.8rem;
+    height: 2rem;
+    border: #c8a9f7 solid 0.2rem;
+    border-radius: 0.2rem;
+    background: #25134f;
+    cursor: pointer;
+    opacity: 1;
+}
+  
+.slider::-moz-range-thumb {
+    width: 0.8rem;
+    height: 2rem;
+    outline: #25134f solid 0.05rem;
+    border-radius:  0.2rem;
+    background: #25134f;
+    cursor: pointer;
+    opacity: 1;
+
+}
+/* .buttons{
+    box-shadow: grey;
+    z-index: 100;
+} */
+
+.buttonSelected{
+    cursor: pointer;
+    filter: drop-shadow(0px 0px 20px goldenrod);
+}
+
+/* .buttons:hover {
+    opacity:1;
+    filter:opacity(1.0) !important;
+    cursor: pointer;
+     background: rgba(255, 255, 255, 0.425); 
+    border-radius: 10px;
+    filter: drop-shadow(30px 10px 4px #1f1f24);
+} */
+
+
+
+
+#controlPanel{
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width:  30%;
+    height: 40%;
+    padding: 0;
+    margin: 0;
+    border: #c8a9f7 solid 0.17rem;
+    border-radius: 1rem;
+    background-color: #25094f;
+    transition: 450ms;
+}
+
+
+
+/* ---------PLAY RESET BUTTONS------------- */
+#play{
+    position: absolute;
+    left: 52%;
+    top: 35%;
+    width:  60%;
+    height: 38%;
+    padding: 0.1rem;
+    margin: 0.2rem;
+    padding-top: 0.2rem;
+    /* border: greenyellow solid 0.17rem; */
+    border-radius: 0.5rem;
+    /* font-family: "Comic Sans MS"; */
+    font-size: 1rem;
+    color: rgb(218, 218, 218);
+    text-align: center;
+    transition: 600ms;
+    filter: saturate(0);
+}
+#play:hover{
+    cursor: pointer;
+    /* background-color: greenyellow; */
+    /* color: green; */
+    filter: saturate(1);
+}
+
+
+
+
+
+
+.playSelected{
+    cursor: pointer;
+    background-color: greenyellow;
+    color: green;
+}
+
+/* ------------------END of PLAY/RESET buttons---------------------------- */
+#kgButton4:hover{
+    /* opacity: 0.9; */
+    cursor: pointer;
+    filter: drop-shadow(0px 0px 20px goldenrod);
+}
+
+#kgButton5:hover{
+    /* opacity: 1.0; */
+    cursor: pointer;
+    /* outline: 2rem solid greenyellow; */
+    filter: drop-shadow(0px 0px 20px goldenrod);
+}
+
+#kgButton6:hover{
+    /* opacity: 1.0; */
+    cursor: pointer;
+    filter: drop-shadow(0px 0px 20px goldenrod);
+}
+
+#FricButton1:hover{
+    /* opacity: 1.0; */
+    cursor: pointer;
+    filter: drop-shadow(0px 0px 20px goldenrod);
+}
+
+#FricButton2:hover{
+    /* opacity: 1.0; */
+    cursor: pointer;
+    /* border: 0.1rem solid goldenrod; */
+    filter: drop-shadow(0px 0px 20px goldenrod);
+}
+
+#FricButton3:hover{
+    /* opacity: 1.0; */
+    cursor: pointer;
+    filter: drop-shadow(0px 0px 20px goldenrod);
+}
+
+
+
+
+#kgButton4{
+    position: absolute;
+    left:61%;
+    top: 38%;
+    height: 45%;
+    transition: 250ms;
+}
+
+#kgButton5{
+    position: absolute;
+    top: 48%;
+    left: 38%;
+    height: 35%;
+    transition: 250ms;
+
+}
+#kgButton6{
+    position: absolute;
+    top: 58%;
+    left: 20%;
+    height: 25%;
+
+    /* opacity: 0.6; */
+    transition: 250ms;
+
+
+}
+
+#weightLabel{
+    position: absolute;
+    width:70%;
+    left:15%;
+    top:86%;
+
+}
+
+#FricButton1{
+    position: absolute;
+    top: 1.5rem;
+    left: 2rem;
+    max-width: 20%;
+    /* opacity: 0.6; */
+    transition: 250ms;
+
+}
+
+#FricButton2{
+    position: absolute;
+    top: 1.5rem;
+    left: 38%;
+    max-width: 20%;
+    /* opacity: 0.6; */
+    transition: 250ms;
+
+
+}
+#FricButton3{
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    max-width: 20%;
+
+    /* opacity: 0.6; */
+    transition: 250ms;
+
+}
+
+#FrictionLabel{
+    position: absolute;
+    width:66%;
+    left:17%;
+    top:2%;
+
+}
+
+/* #svgbutton{
+    position:absolute;
+    z-index: 100;
+    width: 100px;
+} */
+
+/* #kg4{
+    position: relative;
+    background: red;
+} */
+/* #red{
+    position: absolute;
+    left:40%;
+    top:20%;
+} */
+#svgredarrow{
+    position: absolute;
+    left:39%;
+    top:70%;
+    width: 10%;
+    /* transform: translateX(-50%); */
+    transform-origin: 100% 100%;
+    /* transform: translateX(-50%) scaleX(0.5); */
+
+}
+
+#svggreenarrow{
+    position: absolute;
+    left:50%;
+    top:35%;
+    width: 10%;
+    /* transform: translateX(-50%); */
+    transform-origin: 0% 0%;
+    /* transform: translateX(-50%) scaleX(0.5) ; */
+}
+
+#svggreenhead{
+    position: absolute;
+    left:47%;
+    top:31.7%;
+    width: 4%;
+}
+
+#redhead{
+    position: absolute;
+    left:48%;
+    top:67%;
+    width: 4%;
+}
+
+
+
+
+#alertBox{
+    /* z-index: 100; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 30%;
+    background-color: #808080;
+    transform: translate(-50%,-50%);
+    border: greenyellow solid 0.17rem;
+    /* font-family: "Comic Sans MS"; */
+
+    color: #cacaca;
+    font-size: 2rem;
+    padding: 2rem;
+    border-radius: 1rem;
+
+}
+
+#screenCovered{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    /* font-family: "Comic Sans MS"; */
+    /* background-color: rgba(255, 255, 255, 0); */
+   -webkit-backdrop-filter: blur(0.6rem);
+    backdrop-filter: blur(2rem);
+    transition: 400ms;
+}
+#startButton{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15%;
+    height: 7%;
+
+    background: #25134f;
+    color: orange;
+    /* font-family: "Comic Sans MS"; */
+
+    border: #c8a9f7 solid 0.2rem;
+
+    transform: translate(-50%,-50%);
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    padding-top: 0.0rem;
+    border-radius: 1rem;
+    text-align: center;
+    transition: 400ms;
+}
+#startButton:hover{
+    background-color: greenyellow;
+    color: green;
+    cursor: pointer;
+}
+
+/* --------------------------TUTORIAL POPUP arrow-------------------- */
+
+/* --------------------Traingle------------------------*/
+.triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 0.5rem solid transparent;
+    border-top: 0;
+    border-bottom: 0.8rem solid rgb(251, 255, 4);
+    /* border-radius: 0.2rem; */
+}
+#t1{
+    position: absolute;
+    top: 74%;
+    left: 59.4%;
+    transform: rotate(180deg);
+    transition: opacity 2s;
+    animation: textgrowth2 3s infinite alternate;
+    opacity: 0;
+}
+
+#t2{
+    position: absolute;
+    top: 14%;
+    left: 70%;
+    transform: rotate(90deg);
+    transition: opacity 2s;
+    animation: textgrowth1 3s infinite alternate;
+    opacity: 0;
+
+}
+#t3{
+    position: absolute;
+    top: 27%;
+    left: 70%;
+    transform: rotate(90deg);
+    transition: opacity 2s;
+    animation: textgrowth1 3s infinite alternate;
+    opacity: 0;
+
+}
+@keyframes textgrowth1 {
+    0% {
+    transform: scale(1) rotate(90deg);
+    }
+    100% {
+    transform: scale(1.02) rotate(90deg);
+    }
+}
+@keyframes textgrowth2 {
+    0% {
+    transform: scale(1) rotate(180deg);
+    }
+    100% {
+    transform: scale(1.02) rotate(180deg);
+    }
+}
+/* --------------------------------------------------- */
+/* --------------------------TUTORIAL POPUPS-------------------- */
+
+#sliderTutorial{
+    position: absolute;
+    display: none;
+    top: 67%;
+    left: 70%;
+    /* height: 4%; */
+    background: linear-gradient(to right, rgb(251, 5, 37),rgb(255, 95, 32),rgb(255, 166, 0));
+    transform: translate(-50%,-50%);
+    /* border: greenyellow solid 0.2rem; */
+    color: #ffeebe;
+    font-size: 0.8rem;
+    /* font-family: "Comic Sans MS"; */
+    padding: 0.3rem;
+    padding-right: 2.5rem;
+    border-radius: 0.3rem;
+    /* text-align: center; */
+    transition: opacity 2s;
+    animation: textgrowth 3s infinite alternate;
+    opacity: 0;
+}
+
+
+
+
+#frictionTutorial{
+    position: absolute;
+    display: none;
+
+    top: 16%;
+    left: 43%;
+    height: 7%;
+    background: linear-gradient(to right, rgb(251, 5, 37),rgb(255, 95, 32),rgb(255, 166, 0));
+    transform: translate(-50%,-50%);
+    /* border: greenyellow solid 0.2rem; */
+    color: #ffeebe;
+    font-size: 0.8rem;
+    /* font-family: "Comic Sans MS"; */
+    padding: 0.3rem;
+    padding-right: 2.5rem;
+    border-radius: 0.3rem;
+    transition: opacity 2s;
+    animation: textgrowth 3s infinite alternate;
+    opacity: 0;
+}
+
+#weightTutorial{
+    position: absolute;
+    display: none;
+
+    top: 28%;
+    left: 43%;
+    height: 7%;
+    background: linear-gradient(to right, rgb(251, 5, 37),rgb(255, 95, 32),rgb(255, 166, 0));
+    transform: translate(-50%,-50%);
+    /* border: greenyellow solid 0.2rem; */
+    color: #ffeebe;
+    font-size: 0.8rem;
+    /* font-family: "Comic Sans MS"; */
+    padding: 0.3rem;
+    padding-right: 2.5rem;
+    border-radius: 0.3rem;
+    transition: opacity 2s;
+    animation: textgrowth 3s infinite alternate;
+    opacity: 0;
+}
+
+@keyframes textgrowth {
+    0% {
+    transform: scale(1) translate(-50%,-50%);
+    }
+    100% {
+    transform: scale(1.02) translate(-50%,-50%);
+    }
+}
+
+/* ---------------------CROSS on tutorial popups------------------------- */
+.cross{
+    position: absolute;
+    top: -25%;
+    right: 6%;
+    color: rgb(255, 179, 0);
+    font-size: 2.5rem;
+    padding: 0.5rem;
+
+}
+.cross:hover{
+    color: rgb(255, 253, 111);
+    cursor: pointer;
+}
+#c1{
+    top: -35%;
+    right: 1%;
+}
+#c2{
+    top: -50%;
+    right: 1%;
+}
+#c3{
+    top: -50%;
+    right: 1%;
+}
+
+/* --------------------------------------------------- */
+
+
+/* -----------------------QUIT GAME AND FINISH GAME---------------------------- */
+#quitGame{
+    position: absolute;
+    display: block;
+    left: 5%;
+    top: 10%;
+    /* background: #25134f; */
+    color: #25134f;
+    font-size: 2rem;
+    /* font-family: "Comic Sans MS"; */
+    border: hsl(264, 73%, 44%) solid 0.2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 100%;
+    transition: 100ms;
+
+}
+
+#quitGame:hover{
+    /* background: #463177; */
+    filter: drop-shadow(0px 0px 0.05rem #25134f);
+    color: orange;
+
+    cursor: pointer;
+
+}
+
+
+
+#finish{
+    position: absolute;
+    display: block;
+    left: 5%;
+    bottom: 5%;
+    background: #25134f;
+    color: orange;
+    /* font-family: "Comic Sans MS"; */
+    font-size: 1rem;
+
+    border: #c8a9f7 solid 0.2rem;
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+    transition: 100ms;
+
+}
+
+#finish:hover{
+    /* background: #463177; */
+    filter: drop-shadow(0px 0px 0.1rem hsl(258, 61%, 19%));
+
+    cursor: pointer;
+
+}
+
+
+/* ----------------------@MEDIA QUERIES----------------------------- */
+
+
+@media (max-aspect-ratio: 1/1) {
+    #alertBox{
+        display: block;
+    }    
+
+    #masterDiv{
+        display: none;
+
+    }
+    #startButton{
+        display: none;
+    
+    }
+}
+@media (min-aspect-ratio: 1/1) {
+    #alertBox{
+        display: none;
+    }    
+
+    #masterDiv{
+        display: flex;
+
+    }
+    #startButton{
+        display: block;
+    }
+}
+.inactive{
+    pointer-events: none;
+    opacity: 0.3;
+}
+@media only screen and (max-aspect-ratio:16/9 ) {
+    
+    #firstDiv{
+        width:100vw;
+        height:56.25vw;
+        bottom: 2%;
+        
+    }
+    html{
+        font-size:2.25vw ;
+    }
+    #backgroundImage{
+        position: absolute;
+        /* width: 150vw; */
+        height: 100vh;
+        left: 50%;
+        top:50%;
+        transform: translate(-50%, -50%);
+    }
+    #backgroundImageFlip{
+        position: absolute;
+        /* width: 150vw; */
+        height: 100vh;
+
+        left: -50%;
+        top:50%;
+        transform: translate(-50%, -50%);
+        /* border: 1px solid red; */
+    }
+    #box{
+        position: absolute;
+        top:55%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        height: 20vw;
+    }
+}
+
+@media only screen and (min-aspect-ratio:16/9 ) {
+
+    html{
+        font-size: 4vh; 
+        
+    }
+    #sliderVal {
+        left:20%;
+        top:36%;
+    }
+    #svggreenhead{
+        top: 40%;
+    }
+    #svggreenarrow{
+        top:43.2%;
+    }
+    
+    #staticFric{
+        left:18%;
+        bottom:6%;
+    }
+    
+    #kineticFric{
+        left:18%;
+        bottom:-2%;
+    }
+    #redhead{
+        top: 77%;
+    }
+    #svgredarrow{
+        top:80.2%;
+    }
+    
+    
+}
